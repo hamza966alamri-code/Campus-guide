@@ -1,57 +1,1026 @@
-body {
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: Arial;
-  background: linear-gradient(to right, #0f2027, #4a4a4a, #2c5364);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  direction: rtl;
-  color: white;
+  padding: 0;
 }
 
-.container {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 40px;
-  border-radius: 20px;
-  text-align: center;
-  width: 500px;
-  backdrop-filter: blur(10px);
-}
 
-h1 {
-  margin-bottom: 10px;
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  margin-top: 20px;
-  font-size: 16px;
-}
-
-button {
-  margin-top: 15px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: #174b1f;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #19533a;
-}
-
-#result {
-  margin-top: 20px;
-  font-size: 18px;
-}
+/* =========================================================
+   BODY
+========================================================= */
 
 body {
   font-family: 'Tajawal', sans-serif;
+  min-height: 100vh;
+  direction: rtl;
+  color: #ffffff;
+  padding: 30px;
+
+  background:
+  radial-gradient(
+    ellipse at top right,
+    #315477 0%,
+    transparent 55%
+  ),
+  radial-gradient(
+    ellipse at bottom left,
+    #162f38 0%,
+    transparent 60%
+  ),
+  linear-gradient(
+    135deg,
+    #050d12 0%,
+    #0c1d2b 40%,
+    #203f5c 70%,
+    #0a2028 100%
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+/* =========================================================
+   الحاوية الرئيسية
+========================================================= */
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 40px;
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================================
+   الهيدر
+========================================================= */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  width: 170px;
+  filter: drop-shadow(0 4px 12px rgba(17, 17, 17, 0.137));
+}
+
+.header-text {
+  text-align: right;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+
+  background: linear-gradient(135deg, #ffffff, #edefed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+
+/* =========================================================
+   قسم البحث
+========================================================= */
+
+.search-section {
+  margin-bottom: 10px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+
+  padding: 6px 6px 6px 14px;
+  gap: 10px;
+
+  transition: 0.3s;
+}
+
+.search-box:focus-within {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(100, 200, 100, 0.6);
+
+  box-shadow: 0 0 0 4px rgba(100, 200, 100, 0.1);
+}
+
+.search-icon {
+  font-size: 18px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.search-box input {
+  flex: 1;
+
+  background: transparent !important;
+  border: none;
+  outline: none;
+
+  font-size: 16px;
+  font-family: 'Tajawal', sans-serif;
+
+  color: #ffffff;
+  text-align: right;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.search-box button {
+  margin: 0;
+  padding: 12px 28px;
+
+  border-radius: 12px;
+  border: none;
+
+  background: linear-gradient(135deg, #3d8b35, #56c44a);
+
+  color: #fff;
+
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Tajawal', sans-serif;
+
+  cursor: pointer;
+  transition: 0.25s;
+
+  box-shadow: 0 4px 15px rgba(80, 180, 80, 0.35);
+
+  flex-shrink: 0;
+}
+
+.search-box button:hover {
+  background: linear-gradient(135deg, #4da844, #6bdc5e);
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 6px 20px rgba(80, 180, 80, 0.5);
+}
+
+
+/* =========================================================
+   أزرار الاختصار
+========================================================= */
+
+.quick-buttons {
+  display: flex;
+  justify-content: center;
+
+  gap: 12px;
+  flex-wrap: wrap;
+
+  margin-top: 14px;
+}
+
+.quick-buttons button {
+  background: rgba(255, 255, 255, 0.877);
+
+  color: rgba(3, 3, 3, 0.85);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+
+  padding: 5px 20px;
+
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Tajawal', sans-serif;
+
+  cursor: pointer;
+  transition: 0.25s;
+
+  margin: 0;
+}
+
+.quick-buttons button:hover {
+  background: rgba(80, 180, 80, 0.3);
+
+  border-color: rgba(80, 200, 80, 0.5);
+
+  color: #fff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   نتيجة البحث
+========================================================= */
+
+#result {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  font-size: 37px;
+  font-weight: 700;
+
+  min-height: 28px;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+
+/* =========================================================
+   عناوين الأقسام
+========================================================= */
+
+.section-title {
+  text-align: center;
+
+  font-size: 27px;
+  font-weight: 600;
+
+  color: rgb(255 255 255);
+
+  letter-spacing: 1px;
+
+  margin-bottom: 10px;
+  padding-right: 4px;
+}
+
+
+/* =========================================================
+   Layout الخرائط
+========================================================= */
+
+.maps-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 70px;
+  margin-top: 65px;
+}
+
+
+/* =========================================================
+   قسم المخطط
+========================================================= */
+
+.map-section {
+  flex: 1.1;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   قسم المبنى
+========================================================= */
+
+.building-section {
+  flex-shrink: 0;
+
+  width: 450px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   المخطط
+========================================================= */
+
+.map-container {
+  position: relative;
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow: 0 35px 40px rgba(0, 0, 0, 0.35);
+
+  flex: 1;
+  min-height: 280px;
+}
+
+.map-image {
+  width: 100%;
+  display: block;
+}
+
+#map-svg {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =========================================================
+   الليجند
+========================================================= */
+/* =========================================================
+   LEGEND - شريط كبير أسفل الخرائط
+========================================================= */
+
+.map-legend {
+  width: calc(93% + 80px);
+  margin-right: -5px;
+  margin-left: -80px;
+
+  min-height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  gap: 28px;
+
+  margin-top: 38px;
+  margin-bottom: 0;
+
+  padding: 32px 40px;
+
+  background: rgba(164, 162, 162, 0.205);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(251, 248, 247, 0.36);
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.35);
+
+  font-size: 20px;
+
+  color: #ffffff;
+
+  opacity: 1;
+}
+
+/* =========================================================
+   عناصر الـLegend
+========================================================= */
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  min-width: 130px;
+  min-height: 95px;
+
+  padding: 14px 52px;
+
+  background: rgba(11, 11, 11, 0.38);
+
+  border: 1px solid rgba(3, 8, 10, 0.661);
+
+  border-radius: 12px;
+
+  font-family: 'Tajawal', sans-serif;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   الدوائر
+========================================================= */
+
+.dot {
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   المربعات
+========================================================= */
+
+.box {
+  width: 19px;
+  height: 19px;
+
+  border-radius: 2px;
+
+  display: inline-block;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   خط المسار
+========================================================= */
+
+.line-icon {
+  width: 32px;
+  height: 5px;
+
+  border-radius: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #ff4444,
+    #ff8888
+  );
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   الألوان
+========================================================= */
+
+.red {
+  background: #ff3b3b;
+
+  box-shadow:
+    0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.green {
+  background: #2ecc71;
+
+  box-shadow:
+    0 0 10px rgba(46, 204, 113, 0.7);
+}
+
+.blue {
+  background: #3498db;
+
+  box-shadow:
+    0 0 10px rgba(52, 152, 219, 0.7);
+}
+
+
+/* =========================================================
+   المسار
+========================================================= */
+
+#route-path {
+  fill: none;
+  stroke: #E14A2B;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+
+  /* ظل لوني خفيف يعطي الخط إحساسًا بالعمق بدل السطح المسطح */
+  filter: drop-shadow(0 3px 6px rgba(225, 74, 43, 0.35));
+}
+
+/* نمط التدفق المستمر بعد اكتمال رسم المسار */
+#route-path.route-flow {
+  stroke-dasharray: 16 12;
+  animation: routeFlow 1.1s linear infinite;
+}
+
+@keyframes routeFlow {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
+
+/* احترام من يفضّل تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+  #route-path {
+    transition: none !important;
+  }
+  #route-path.route-flow {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   نقطة البداية
+========================================================= */
+
+#start-dot {
+  fill: #ff3b3b;
+  stroke: white;
+  stroke-width: 3;
+
+  transform-origin: center;
+  transform-box: fill-box;
+
+  animation: startDotPulse 1.1s ease-in-out infinite;
+}
+
+@keyframes startDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 3px rgba(255, 59, 59, 0.4));
+  }
+
+  50% {
+    transform: scale(0.95);
+    filter: drop-shadow(0 0 12px rgba(255, 59, 59, 0.95));
+  }
+}
+
+
+/* =========================================================
+   نقطة الوجهة
+========================================================= */
+
+#destination-dot {
+  fill: #2ecc71;
+
+  stroke: white;
+  stroke-width: 4;
+
+  filter: drop-shadow(0 0 10px #2ecc71);
+
+  display: none;
+}
+
+
+/* =========================================================
+   المبنى
+========================================================= */
+
+.building-wrapper {
+  display: flex;
+  align-items: stretch;
+
+  gap: 0;
+
+  flex: 1;
+}
+
+
+/* =========================================================
+   أرقام الأدوار
+========================================================= */
+
+.floor-labels {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 18%;
+  padding-bottom: 6%;
+
+  width: 65px;
+
+  flex-shrink: 0;
+
+  position: relative;
+  z-index: 20;
+}
+
+
+/* =========================================================
+   شكل أرقام الأدوار
+========================================================= */
+
+.floor-labels span {
+  color: rgba(255, 255, 255, 0.9);
+
+  font-weight: 700;
+  font-size: 15px;
+
+  font-family: 'Tajawal', sans-serif;
+
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  border-radius: 7px;
+
+  padding: 14px 21px;
+
+  position: relative;
+
+  cursor: default;
+
+  transition: 0.25s;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   الخط الواصل من رقم الدور للمبنى
+========================================================= */
+
+.floor-labels span::after {
+  content: '';
+
+  position: absolute;
+
+  left: 100%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 10px;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================================================
+   الدور المحدد
+========================================================= */
+
+.floor-labels span.active {
+  background: linear-gradient(135deg, #cc2222, #ff4444);
+
+  color: #fff;
+
+  border-color: rgba(255, 100, 100, 0.5);
+
+  box-shadow:
+    0 0 12px rgba(255, 60, 60, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+
+  transform: scale(1.12);
+}
+
+/* =========================================================
+   حاوية صورة المبنى
+========================================================= */
+
+.building-container {
+  position: relative;
+
+  flex: 1;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 35px 40px rgba(0, 0, 0, 0.35);
+
+  min-height: 280px;
+}
+
+.building-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 14px;
+}
+
+
+/* =========================================================
+   تحديد الدور
+========================================================= */
+#floor-highlight {
+  position: absolute;
+
+  left: 6%;
+  width: 96%;
+
+  height: 65px;
+
+  border-radius: 10px;
+
+  /* تدرج بدل تعبئة حمراء صلبة: يبرز في المنتصف ويخفت عند الحواف
+     فيبدو كإضاءة على الدور بدل بقعة لون مسطحة */
+  background: linear-gradient(
+  90deg,
+  rgba(214, 73, 30, 0) 0%,
+  rgba(214, 30, 30, 0.839) 15%,
+  rgba(214, 30, 30, 0.839) 85%,
+  rgba(30, 125, 214, 0.072) 100%
+);
+
+  /* حدّان علوي وسفلي مضيئان يحددان الدور بدقة أكبر من التعبئة وحدها */
+  border-top: 2px solid rgba(214, 73, 30, 0.85);
+  border-bottom: 2px solid rgba(214, 73, 30, 0.85);
+
+  box-shadow:
+    0 0 18px rgba(214, 73, 30, 0.55),
+    inset 0 0 20px rgba(214, 73, 30, 0.15);
+
+  display: none;
+
+  z-index: 5;
+
+  pointer-events: none;
+
+  transform: translateY(-30%);
+
+  animation: floorPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes floorPulse {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow:
+      0 0 14px rgba(214, 73, 30, 0.4),
+      inset 0 0 15px rgba(214, 73, 30, 0.1);
+  }
+
+  20% {
+    opacity: 1;
+    box-shadow:
+      0 0 30px rgba(214, 73, 30, 0.8),
+      inset 0 0 25px rgba(214, 73, 30, 0.25);
+  }
+
+  35% {
+    opacity: 0.8;
+    box-shadow:
+      0 0 16px rgba(214, 73, 30, 0.45),
+      inset 0 0 15px rgba(214, 73, 30, 0.12);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 30px rgba(214, 73, 30, 0.8),
+      inset 0 0 25px rgba(214, 73, 30, 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #floor-highlight {
+    animation: none;
+    opacity: 0.9;
+  }
+}
+
+
+/* =========================================================
+   النقطة الحمراء على المبنى
+========================================================= */
+
+#start-floor-dot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #ff3b3b;
+  border-radius: 50%;
+  border: 2.5px solid white;
+  z-index: 10;
+
+  /* مكان النقطة */
+  bottom: 25%;
+  right: 7%;
+
+  /* النبض */
+  animation: floorDotPulse 1.1s ease-in-out infinite;
+
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+@keyframes floorDotPulse {
+  0%, 100% {
+    transform: translateY(-30%) scale(1);
+    box-shadow:
+      0 0 8px rgba(255, 0, 0, 0.5);
+  }
+
+  50% {
+    transform: translateY(-30%) scale(1.3);
+    box-shadow:
+      0 0 24px rgba(255, 0, 0, 1);
+  }
+}
+
+/* =========================================================
+   شرح رموز القاعات
+========================================================= */
+
+/* =========================================================
+   🔎 دليل قراءة رمز القاعة
+========================================================= */
+
+.room-code-guide {
+  width: 100%;
+  margin-top: 30px;
+  padding: 50px 34px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  border: 1px solid rgba(252, 249, 249, 0.418);
+  border-radius: 22px;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+
+/* =========================================================
+   العنوان
+========================================================= */
+
+.guide-title {
+  font-size: 30px;
+  font-weight: 800;
+
+  color: #ffffff;
+
+  margin-bottom: 25px;
+
+  letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   رمز القاعة
+========================================================= */
+
+.room-code {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 23px;
+
+  direction: ltr;
+}
+
+
+/* =========================================================
+   بطاقات أجزاء الرمز
+========================================================= */
+
+.code-part {
+  width: 195px;
+  min-height: 105px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 14px 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.10),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+/* =========================================================
+   الحرف / الرقم
+========================================================= */
+
+.code-part strong {
+  font-size: 42px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  color: #2ed844;
+
+  text-shadow:
+    0 0 20px rgba(0, 0, 0, 0.274);
+}
+
+
+/* =========================================================
+   شرح الجزء
+========================================================= */
+
+.code-part span {
+  font-size: 24px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  color: rgba(255, 255, 255, 0.993);
+}
+
+
+/* =========================================================
+   الفواصل
+========================================================= */
+
+.code-separator {
+  font-size: 32px;
+  font-weight: 900;
+
+  color: rgba(255, 255, 255, 0.38);
+
+  margin-top: -3px;
+}
+
+
+/* =========================================================
+   المثال
+========================================================= */
+
+.guide-example {
+  margin-top: 25px;
+  padding-top: 18px;
+
+  border-top:
+    1px solid rgba(169, 163, 163, 0.329);
+
+  font-size: 36px;
+  font-weight: 500;
+
+  color: rgb(255, 255, 255);
+}
+
+
+/* =========================================================
+   رمز المثال
+========================================================= */
+
+.guide-example strong {
+  color: #f6e503;
+
+  font-size: 38px;
+  font-weight: 900;
+
+  text-shadow:
+    0 0 14px rgba(175, 184, 43, 0.134);
 }
