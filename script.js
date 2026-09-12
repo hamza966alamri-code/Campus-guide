@@ -304,19 +304,13 @@ function highlightFloor(floor) {
   // ===============================
   // 📍 مواقع الهايلايت
   // ===============================
-  const positions = {
-
-    S: 426,
-
-    G: 338,
-
-    1: 260,
-
-    2: 180,
-
-    3: 110
-
-  };
+const positions = {
+    S: 84,
+    G: 67,
+    1: 52,
+    2: 36,
+    3: 21,
+};
 
 
   // إذا الدور غير موجود
@@ -339,8 +333,7 @@ function highlightFloor(floor) {
   // ===============================
   // 🔴 إظهار الهايلايت
   // ===============================
-  highlight.style.top =
-    positions[floor] + "px";
+  highlight.style.top = positions[floor] + "%";
 
   highlight.style.display = "block";
 

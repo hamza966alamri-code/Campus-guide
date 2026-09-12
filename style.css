@@ -764,7 +764,7 @@ input::placeholder {
 
   pointer-events: none;
 
-  transform: translateY(-30%);
+  transform: translateY(-20%);
 
   animation: floorPulse 1.8s ease-in-out infinite;
 }
@@ -1023,4 +1023,331 @@ input::placeholder {
 
   text-shadow:
     0 0 14px rgba(175, 184, 43, 0.134);
+}
+
+
+/* =====================================================
+   MOBILE
+   نفس تصميم الكمبيوتر لكن بتوزيع مصغر ومتناسق
+   ===================================================== */
+
+@media (max-width:700px) {
+
+    body {
+        padding: 6px;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 18px 8px;
+        border-radius: 20px;
+    }
+
+    .header {
+        gap: 8px;
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+    }
+
+    .logo {
+        width: 72px;
+        flex-shrink: 0;
+    }
+
+    h1 {
+        font-size: 25px;
+        line-height: 1.15;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .search-section {
+        width: 100%;
+    }
+
+    .search-box {
+        width: 100%;
+        padding: 4px;
+        gap: 5px;
+    }
+
+    .search-box input {
+        min-width: 0;
+        font-size: 13px;
+    }
+
+    .search-box button {
+        padding: 9px 15px;
+        font-size: 13px;
+        flex-shrink: 0;
+    }
+
+    .quick-buttons {
+    gap: 5px;
+    margin-top: 9px;
+}
+
+.quick-buttons button {
+    padding: 3px 7px;
+    font-size: 8px;
+    line-height: 1.2;
+    border-radius: 4px;
+}
+
+    #result {
+        margin-top: 18px;
+        margin-bottom: 16px;
+        font-size: 19px;
+        line-height: 1.4;
+    }
+
+
+    /* =========================
+       الخرائط - الجوال
+       ========================= */
+
+    .maps-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 7px;
+        margin-top: 22px;
+    }
+
+    /* =========================
+       قسم المبنى - اليمين
+       ========================= */
+
+    .building-section {
+        width: 50%;
+        min-width: 0;
+        flex-shrink: 0;
+    }
+
+    /* =========================
+       قسم المخطط - اليسار
+       ========================= */
+
+    .map-section {
+        width: 45%;
+        min-width: 0;
+        flex-shrink: 0;
+    }
+
+    .section-title {
+        font-size: 13px;
+        line-height: 1.25;
+        margin-bottom: 6px;
+        letter-spacing: 0;
+        white-space: nowrap;
+    }
+
+
+    /* =========================
+       صورة المبنى
+       ========================= */
+
+    .building-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: stretch;
+        gap: 2px;
+    }
+
+    .building-container {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .building-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+
+    /* =========================
+       أرقام الأدوار
+       ========================= */
+
+    .floor-labels {
+        width: 30px;
+        flex-shrink: 0;
+        padding-top: 18%;
+        padding-bottom: 6%;
+        justify-content: space-between;
+    }
+
+    .floor-labels span {
+        padding: 7px 7px;
+        font-size: 11px;
+        line-height: 1;
+        border-radius: 7px;
+        white-space: nowrap;
+    }
+
+    .floor-labels span.active {
+        transform: scale(1.08);
+    }
+
+
+    /* =========================
+       مخطط الكلية - اليسار
+       ========================= */
+
+    .map-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 820 / 1200;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .map-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    #map-svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    /* =========================
+       Highlight المبنى
+       ========================= */
+
+    #floor-highlight {
+        left: 0;
+        width: 100%;
+        height: 12%;
+        border-radius: 2px;
+        transform: translateY(-30%);
+    }
+
+
+    /* =========================
+       نقطة "أنت هنا" في المبنى
+       ========================= */
+
+    #start-floor-dot {
+        width: 11px;
+        height: 11px;
+        border-width: 1px;
+        bottom: 25%;
+        right: 6%;
+    }
+
+
+    /* =========================
+       الـ Legend
+       ========================= */
+
+    .map-legend {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        min-height: 0;
+        gap: 4px;
+        margin-top: 20px;
+        padding: 8px 5px;
+        flex-wrap: nowrap;
+        border-radius: 12px;
+        font-size: 9px;
+    }
+
+    .legend-item {
+        min-width: 0;
+        min-height: 48px;
+        flex: 1;
+        padding: 5px 3px;
+        gap: 4px;
+        border-radius: 7px;
+        font-size: 9px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .box {
+        width: 9px;
+        height: 9px;
+    }
+
+    .line-icon {
+        width: 15px;
+        height: 2px;
+    }
+
+
+    /* =========================
+       شرح رمز القاعة
+       ========================= */
+
+    .room-code-guide {
+        width: 100%;
+        margin-top: 18px;
+        padding: 24px 8px;
+        border-radius: 16px;
+    }
+
+    .guide-title {
+        font-size: 19px;
+        margin-bottom: 14px;
+    }
+
+    .room-code {
+        gap: 4px;
+        width: 100%;
+    }
+
+    .code-part {
+        width: 23%;
+        min-height: 65px;
+        padding: 6px 2px;
+        gap: 4px;
+        border-radius: 10px;
+    }
+
+    .code-part strong {
+        font-size: 24px;
+    }
+
+    .code-part span {
+        font-size: 10px;
+        line-height: 1.25;
+    }
+
+    .code-separator {
+        font-size: 15px;
+        margin-top: -2px;
+    }
+
+    .guide-example {
+        margin-top: 15px;
+        padding-top: 12px;
+        font-size: 15px;
+        line-height: 1.45;
+    }
+
+    .guide-example strong {
+        font-size: 17px;
+    }
 }
