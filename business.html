@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل كلية الأعمال</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- ===== زر العودة إلى KKU MAP ===== -->
+    <a href="home.html" class="back-to-home">
+      ← العودة إلى KKU MAP
+    </a>
+
+    <!-- ===== الهيدر ===== -->
+    <div class="header">
+
+      <img src="kku-logo.svg" class="logo">
+
+      <div class="header-text">
+
+        <h1>دليل كلية الأعمال</h1>
+
+        <p class="subtitle">
+          ابحث عن وجهتك
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- ===== البحث ===== -->
+    <div class="search-section">
+
+      <div class="search-box">
+
+        <span class="search-icon">🔍</span>
+
+        <input
+          type="text"
+          id="search"
+          placeholder="اكتب رقم القاعة..."
+        >
+
+        <button onclick="searchLocation()">
+          بحث
+        </button>
+
+      </div>
+
+
+      <div class="quick-buttons">
+
+        <button onclick="quickSearch('قسم ادارة الاعمال')">
+          قسم ادارة الاعمال
+        </button>
+
+        <button onclick="quickSearch('قسم المحاسبة')">
+          قسم المحاسبة
+        </button>
+
+        <button onclick="quickSearch('قسم معلوماتية الاعمال ')">
+          قسم معلوماتية الاعمال
+        </button>
+
+        <button onclick="quickSearch('قسم المالية')">
+          قسم المالية
+        </button>
+
+        <button onclick="quickSearch('قسم التسويق')">
+          قسم التسويق
+        </button>
+
+        <button onclick="quickSearch('قسم الاقتصاد')">
+          قسم الاقتصاد
+        </button>
+
+        <button onclick="quickSearch('قسم الموارد البشرية')">
+          قسم الموارد البشرية
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ===== النتيجة ===== -->
+    <p id="result"></p>
+
+
+    <!-- ===== الخرائط ===== -->
+    <div class="maps-wrapper">
+
+
+      <!-- 🏢 المبنى -->
+      <div class="building-section">
+
+        <div class="section-title">
+          📍 رقم الطابق
+        </div>
+
+
+        <div class="building-wrapper">
+
+          <div class="floor-labels">
+
+            <span data-floor="3">3</span>
+            <span data-floor="2">2</span>
+            <span data-floor="1">1</span>
+            <span data-floor="G">G</span>
+            <span data-floor="S">S</span>
+
+          </div>
+
+
+          <div class="building-container">
+
+            <img
+              src="buldingfloor.png"
+              class="building-image"
+            >
+
+            <div id="floor-highlight"></div>
+
+
+            <div id="start-floor-dot">
+
+              <div class="pulse-ring"></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 🗺️ المخطط -->
+      <div class="map-section">
+
+        <div class="section-title">
+          🗺️ مخطط الكلية
+        </div>
+
+
+        <div class="map-container">
+
+          <!-- صورة المخطط -->
+          <img
+            src="floorplan.png"
+            class="map-image"
+          >
+
+
+          <!-- مسار الـSVG -->
+<svg
+  id="map-svg"
+  viewBox="0 0 820 1200"
+>
+
+  <path id="route-path"></path>
+
+  <circle
+    id="start-dot"
+    cx="501"
+    cy="999"
+    r="21"
+  ></circle>
+
+  <circle
+    id="destination-dot"
+    r="12"
+  ></circle>
+
+</svg>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         الليجند
+         موجود خارج maps-wrapper
+         حتى يظهر تحت الصورتين معًا
+    ====================================================== -->
+
+    <div class="map-legend">
+
+
+      <div class="legend-item">
+
+        <span class="dot red"></span>
+
+        <span>
+          أنت هنا
+        </span>
+
+      </div>
+
+
+      <div class="legend-item">
+
+        <span class="dot green"></span>
+
+        <span>
+          الوجهة
+        </span>
+
+      </div>
+
+
+      <div class="legend-item">
+
+        <span class="line-icon"></span>
+
+        <span>
+          المسار
+        </span>
+
+      </div>
+
+
+      <div class="legend-item">
+
+        <span class="box green"></span>
+
+        <span>
+          درج
+        </span>
+
+      </div>
+
+
+      <div class="legend-item">
+
+        <span class="box blue"></span>
+
+        <span>
+          مصعد
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         شرح رموز القاعات
+         موجود داخل container وبعد الـLegend
+    ====================================================== -->
+
+    <div class="room-code-guide">
+
+
+      <div class="guide-title">
+         كيف تقرأ رمز القاعة ؟
+      </div>
+
+
+      <div class="room-code">
+
+
+        <div class="code-part">
+
+          <strong>B</strong>
+
+          <span>
+            المبنى - Bulding
+          </span>
+
+        </div>
+
+
+        <div class="code-separator">
+          —
+        </div>
+
+
+        <div class="code-part">
+
+          <strong>6</strong>
+
+          <span>
+            رقم المبنى
+          </span>
+
+        </div>
+
+
+        <div class="code-separator">
+          —
+        </div>
+
+
+        <div class="code-part">
+
+          <strong>2</strong>
+
+          <span>
+            الدور
+          </span>
+
+        </div>
+
+
+        <div class="code-separator">
+          —
+        </div>
+
+
+        <div class="code-part">
+
+          <strong>123</strong>
+
+          <span>
+            رقم القاعة
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="guide-example">
+
+        مثال:
+
+        <strong>
+          B6-2-005
+        </strong>
+
+        → المبنى 6، الدور الثاني، القاعة 5
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+  <!-- أهم سطر -->
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
