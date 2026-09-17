@@ -111,7 +111,7 @@ async function searchLocation() {
     // 📋 عرض النتيجة
     // ===============================
     document.getElementById("result").innerText =
-      `${data.name} - ${data.description}`;
+      `${data.name} ${data.description}`;
 
 
     // ===============================
@@ -309,7 +309,7 @@ const positions = {
     G: 69,
     1: 52,
     2: 36,
-    3: 23,
+    3: 21,
 };
 
 

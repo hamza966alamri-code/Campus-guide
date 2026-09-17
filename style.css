@@ -249,6 +249,33 @@ input::placeholder {
   transform: translateY(-2px);
 }
 
+.department-select {
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 19px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+    direction: rtl;
+}
+
+.department-select:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(219, 154, 32, 0.55);
+}
+
+.department-select:focus {
+    border-color: #c99a45;
+}
+
+.department-select option {
+    background: #17283a;
+    color: #ffffff;
+}
 
 /* =========================================================
    نتيجة البحث
@@ -258,7 +285,7 @@ input::placeholder {
   margin-top: 30px;
   margin-bottom: 30px;
 
-  font-size: 37px;
+  font-size: 34px;
   font-weight: 700;
 
   min-height: 28px;
@@ -275,7 +302,7 @@ input::placeholder {
 .section-title {
   text-align: center;
 
-  font-size: 27px;
+  font-size: 24px;
   font-weight: 600;
 
   color: rgb(255 255 255);
@@ -521,19 +548,19 @@ input::placeholder {
 #route-path {
   fill: none;
   stroke: #E14A2B;
-  stroke-width: 8;
+  stroke-width: 11;
   stroke-linecap: round;
   stroke-linejoin: round;
   pointer-events: none;
 
   /* ظل لوني خفيف يعطي الخط إحساسًا بالعمق بدل السطح المسطح */
-  filter: drop-shadow(0 3px 6px rgba(225, 74, 43, 0.35));
+  filter: drop-shadow(0 3px 6px rgba(1, 2, 5, 0.236));
 }
 
 /* نمط التدفق المستمر بعد اكتمال رسم المسار */
 #route-path.route-flow {
-  stroke-dasharray: 16 12;
-  animation: routeFlow 1.1s linear infinite;
+  stroke-dasharray: 30 23;
+  animation: routeFlow 0.5s linear infinite;
 }
 
 @keyframes routeFlow {
@@ -642,7 +669,7 @@ input::placeholder {
   color: rgba(255, 255, 255, 0.9);
 
   font-weight: 700;
-  font-size: 15px;
+  font-size: 20px;
 
   font-family: 'Tajawal', sans-serif;
 
@@ -774,7 +801,7 @@ input::placeholder {
 
   transform: translateY(-20%);
 
-  animation: floorPulse 1.8s ease-in-out infinite;
+  animation: floorPulse 0.9s ease-in-out infinite;
 }
 
 @keyframes floorPulse {
@@ -1101,7 +1128,7 @@ input::placeholder {
 
 .quick-buttons button {
     padding: 3px 7px;
-    font-size: 8px;
+    font-size: 9px;
     line-height: 1.2;
     border-radius: 4px;
 }
@@ -1109,10 +1136,17 @@ input::placeholder {
     #result {
         margin-top: 18px;
         margin-bottom: 16px;
-        font-size: 19px;
+        font-size: 15px;
         line-height: 1.4;
     }
 
+.department-select {
+    padding: 4px 8px;
+    font-size: 10px;
+    line-height: 1.2;
+    border-radius: 4px;
+    min-width: 0;
+}
 
     /* =========================
        الخرائط - الجوال
@@ -1124,7 +1158,7 @@ input::placeholder {
         flex-direction: row;
         align-items: flex-start;
         justify-content: center;
-        gap: 7px;
+        gap: 5px;
         margin-top: 22px;
     }
 
@@ -1149,7 +1183,7 @@ input::placeholder {
     }
 
     .section-title {
-        font-size: 13px;
+        font-size: 11px;
         line-height: 1.25;
         margin-bottom: 6px;
         letter-spacing: 0;
@@ -1188,7 +1222,7 @@ input::placeholder {
        ========================= */
 
     .floor-labels {
-        width: 30px;
+        width: 15px;
         flex-shrink: 0;
         padding-top: 18%;
         padding-bottom: 6%;
@@ -1199,7 +1233,7 @@ input::placeholder {
         padding: 7px 7px;
         font-size: 11px;
         line-height: 1;
-        border-radius: 7px;
+        border-radius: 6px;
         white-space: nowrap;
     }
 
@@ -1243,9 +1277,9 @@ input::placeholder {
     #floor-highlight {
         left: 0;
         width: 100%;
-        height: 12%;
+        height: 11%;
         border-radius: 2px;
-        transform: translateY(-30%);
+        transform: translateY(-24%);
     }
 
 
@@ -1754,7 +1788,7 @@ input::placeholder {
 
 /*
    إضاءة خفيفة جدًا عند المرور
-   حتى الكروت القادمة ما تكون ميتة
+   حتى الكروت القادمة
 */
 
 .college-card.coming-soon:hover {

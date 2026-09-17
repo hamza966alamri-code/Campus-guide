@@ -60,37 +60,56 @@
 
       <div class="quick-buttons">
 
-        <button onclick="quickSearch('قسم ادارة الاعمال')">
-          قسم ادارة الاعمال
-        </button>
+  <button onclick="quickSearch(' مكتب عميد كلية الاعمال')">
+    مكتب عميد كلية الاعمال
+  </button>
 
-        <button onclick="quickSearch('قسم المحاسبة')">
-          قسم المحاسبة
-        </button>
+  <button onclick="quickSearch('وكيل الشؤون التعليمية و الاكاديمية')">
+    وكيل الشؤون التعليمية والاكاديمية
+  </button>
 
-        <button onclick="quickSearch('قسم معلوماتية الاعمال ')">
-          قسم معلوماتية الاعمال
-        </button>
+  <button onclick="quickSearch('وكيل الدراسات العليا و البحث العلمي')">
+    وكيل الدراسات العليا والبحث العلمي
+  </button>
 
-        <button onclick="quickSearch('قسم المالية')">
-          قسم المالية
-        </button>
+  <button onclick="quickSearch('وحدة التوجيه و الإرشاد')">
+    وحدة التوجيه و الإرشاد
+  </button>
 
-        <button onclick="quickSearch('قسم التسويق')">
-          قسم التسويق
-        </button>
+  <select class="department-select" onchange="quickSearch(this.value)">
+    <option value="" selected disabled>أقسام التخصصات</option>
 
-        <button onclick="quickSearch('قسم الاقتصاد')">
-          قسم الاقتصاد
-        </button>
+    <option value="قسم ادارة الاعمال">
+      قسم إدارة الأعمال
+    </option>
 
-        <button onclick="quickSearch('قسم الموارد البشرية')">
-          قسم الموارد البشرية
-        </button>
+    <option value="قسم المحاسبة">
+      قسم المحاسبة
+    </option>
 
-      </div>
+    <option value="قسم معلوماتية الاعمال">
+      قسم معلوماتية الأعمال
+    </option>
 
-    </div>
+    <option value="قسم المالية">
+      قسم المالية
+    </option>
+
+    <option value="قسم التسويق">
+      قسم التسويق
+    </option>
+
+    <option value="قسم الاقتصاد">
+      قسم الاقتصاد
+    </option>
+
+    <option value="قسم الموارد البشرية">
+      قسم الموارد البشرية
+    </option>
+
+  </select>
+
+</div>
 
 
     <!-- ===== النتيجة ===== -->
@@ -105,7 +124,7 @@
       <div class="building-section">
 
         <div class="section-title">
-          📍 رقم الطابق
+          📍رقم الطابق للوجهه
         </div>
 
 
@@ -149,7 +168,7 @@
       <div class="map-section">
 
         <div class="section-title">
-          🗺️ مخطط الكلية
+          🗺️ موقع وجهتك في الكلية
         </div>
 
 
@@ -179,7 +198,7 @@
 
   <circle
     id="destination-dot"
-    r="12"
+    r="15"
   ></circle>
 
 </svg>
@@ -201,14 +220,9 @@
 
 
       <div class="legend-item">
-
-        <span class="dot red"></span>
-
-        <span>
-          أنت هنا
-        </span>
-
-      </div>
+    <span class="dot red"></span>
+    <span>أنت هنا<br><small>(بهو الكلية)</small></span>
+</div>
 
 
       <div class="legend-item">
